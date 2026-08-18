@@ -33,26 +33,27 @@ dsh-prompt-optimizer/
 
 ## 安装步骤
 
-### 方式一：作为持久化插件安装（推荐）
+### 方式一：本地路径安装（已验证，无需网络 / SSH）
 
-把仓库发布到 GitHub 后，用官方命令安装到指定 profile（以 `web` 为例）：
+```bash
+dsh plugin --profile web add "file:/绝对路径/to/dsh-prompt-optimizer"
+```
+
+`dsh plugin add` 会自动完成两步：把包写入 profile 的 `dependencies`，并注册进 `dsh.profile.bundles`。重启对应 profile 的 Web 界面后，插件即随组合自动加载，无需每次手动激活。
+
+### 方式二：从 GitHub 安装
 
 ```bash
 dsh plugin --profile web add "github:<owner>/dsh-prompt-optimizer#main"
 ```
 
-安装后重启对应 profile 的 Web 界面，插件即随组合自动加载，无需每次手动激活。
+> ⚠️ 注意：pnpm 对 `github:` 源走 SSH（`git+ssh://git@github.com/...`），要求本机已配置 GitHub SSH 密钥。没有 SSH 密钥时会报 `Permission denied (publickey)`，此时请改用方式一（本地路径）。也可以先把仓库发布到 npm 再用 `dsh plugin --profile web add dsh-prompt-optimizer` 安装。
 
-也可以手动接入组合：在目标 profile 的 `package.json` 中把本包加入 `dependencies` 与 `dsh.profile.bundles`，并运行包管理器安装。
+### 方式三：手动接入组合
 
-### 方式二：本地链接开发
+在目标 profile 的 `package.json` 中把本包加入 `dependencies` 与 `dsh.profile.bundles`，然后运行 `dsh plugin --profile web install` 并重启。
 
-```bash
-# 在目标 profile 目录下
-pnpm add "file:/path/to/dsh-prompt-optimizer"
-```
-
-### 方式三：动态插件（临时试用，不持久化）
+### 方式四：动态插件（临时试用，不持久化）
 
 仅用于临时验证、重启即失效：
 
