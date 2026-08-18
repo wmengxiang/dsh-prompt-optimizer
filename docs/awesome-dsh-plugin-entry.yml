@@ -1,0 +1,19 @@
+# 提交到 awesome-dsh-plugin 社区目录的收录条目
+# 目标仓库: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+# 路径: data/plugins/wmengxiang__dsh-prompt-optimizer.yml（提 PR 时新增此文件）
+#
+# 门槛（CI 自动检查）:
+#   1. 仓库创建满 1 天
+#   2. 提交数 >= 10（当前不足，先把功能迭代到 10+ 提交再提）
+#   3. 仓库已添加 dsh-plugin topic（✅ 已添加）
+#   4. package.json 声明 dsh.bundle manifest（✅ 已声明）
+#
+# 提交前在 awesome-dsh-plugin 仓库根目录执行:
+#   npm ci && node scripts/generate-readme.mjs
+# 生成 README 后与本文一起提交。
+url: https://github.com/wmengxiang/dsh-prompt-optimizer
+name: wmengxiang/dsh-prompt-optimizer
+category: ui
+description:
+  en: Adds an icon button to the composer that optimizes the current draft prompt through the active model.
+  zh: 在输入框新增图标按钮，一键调用当前模型把提示词优化得更清晰具体。
