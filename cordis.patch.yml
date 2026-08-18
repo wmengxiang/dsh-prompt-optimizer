@@ -1,0 +1,8 @@
+# dsh-prompt-optimizer bundle patch：向组合挂载 dsh-prompt-optimizer。
+# host 半（数据路由 /api/prompt-optimizer）与 client 半（__ModuleLoader__ UI）均由
+# 官方 bundle 流程解析，无需手动双 entry。
+#
+# 安装（持久化）：dsh plugin --profile web add "github:<owner>/dsh-prompt-optimizer#main"
+- insert:
+    - id: dsh-prompt-optimizer
+      name: dsh-prompt-optimizer

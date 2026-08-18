@@ -1,0 +1,11 @@
+# Node
+node_modules/
+pnpm-lock.yaml
+*.log
+
+# macOS
+.DS_Store
+
+# Editor
+.idea/
+.vscode/
