@@ -4,6 +4,9 @@
   "description": "Adds a ✨ icon button to the DSH web composer that optimizes the current draft prompt through the active model.",
   "type": "module",
   "main": "lib/index.js",
+  "scripts": {
+    "test": "node --test test/contract.test.mjs"
+  },
   "exports": {
     ".": "./lib/index.js",
     "./client": "./lib/client.js",
