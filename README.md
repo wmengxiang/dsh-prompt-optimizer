@@ -69,6 +69,13 @@ dsh plugin --profile web add "github:<owner>/dsh-prompt-optimizer#main"
 4. 完成后，优化后的提示词自动替换输入框内容；
 5. 将鼠标悬停在按钮上可查看说明文字。
 
+## 常见问题 (FAQ)
+
+- **按钮为什么是灰色的？** 输入框为空时按钮会自动置灰（`disabled`），避免对空内容发起优化请求；输入内容后即可点击。
+- **优化用的是哪个模型？** 使用当前激活的默认模型（`agentDefaultModel.currentSelection()`）；在界面上切换模型即可改变优化所用的模型。
+- **为什么 `dsh plugin add "github:..."` 报 `Permission denied (publickey)`？** pnpm 对 `github:` 源默认走 SSH。请改用本地路径安装，或先配置 GitHub SSH 密钥，或发布到 npm 后按包名安装（见上文「安装步骤」）。
+- **优化会改变提示词的原意吗？** 不会。系统提示要求只做清晰化、具体化改写，保留原任务意图与语言。
+
 ## 贡献指南
 
 欢迎提交 Issue 与 Pull Request。
