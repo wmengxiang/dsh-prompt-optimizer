@@ -1,6 +1,6 @@
 {
   "name": "dsh-prompt-optimizer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Adds a ✨ icon button to the DSH web composer that optimizes the current draft prompt through the active model.",
   "type": "module",
   "main": "lib/index.js",

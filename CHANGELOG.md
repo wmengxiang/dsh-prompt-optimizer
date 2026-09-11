@@ -2,6 +2,13 @@
 
 本项目遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/) 格式，版本号遵循 [SemVer](https://semver.org/lang/zh-CN/)。
 
+## [1.0.3] - 2026-09-12
+
+### Fixed
+
+- 禁用态图标过淡难以辨认：原「次级文字色 + 45% 透明度」双重衰减把 ✨ emoji 压得近乎隐形。现改为保持亮度（opacity .95）+ 降饱和（saturate .45）表达禁用感，配合原有 `cursor:not-allowed`，语义清晰且看得清。
+- 样式注入改为幂等刷新：HMR 热替换模块（不刷新页面）时旧样式元素会残留上一版 CSS，此前"已存在即跳过"的写法让新样式永不落地；现每次 apply 都重写 textContent。
+
 ## [1.0.2] - 2026-09-11
 
 ### Changed
