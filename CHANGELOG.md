@@ -2,6 +2,13 @@
 
 本项目遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/) 格式，版本号遵循 [SemVer](https://semver.org/lang/zh-CN/)。
 
+## [1.0.2] - 2026-09-11
+
+### Changed
+
+- 空闲图标由手绘 SVG 星芒改为真正的 ✨ emoji 字形（15px，随主题文字色），加载旋转图标保持不变。
+- 已在 DSH Web 0.1.5-rc.x 环境经 headless 浏览器端到端实测：输入解除置灰、点击优化、草稿回填全链路正常（1.0.1 的 `useInput` 契约兼容代码在新宿主下无回归）。
+
 ## [1.0.1] - 2026-09-10
 
 ### Fixed

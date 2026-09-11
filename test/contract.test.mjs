@@ -47,3 +47,8 @@ test('client half reads the draft via the 0.1.2 session-kit hook with legacy fal
   assert.match(text, /props\.useInput/, 'must consume the useInput selector hook (>=0.1.2 slot standard kit)')
   assert.match(text, /selectDraft\(props\.input\)/, 'must keep the pre-0.1.2 props.input fallback')
 })
+
+test('idle button renders the sparkle emoji glyph', () => {
+  const text = readFileSync(path.join(root, 'lib/client.js'), 'utf8')
+  assert.match(text, /dsh-po-spark[^)]*"✨"/, 'SparkleIcon must render a literal ✨ emoji span')
+})
