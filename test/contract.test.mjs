@@ -53,8 +53,8 @@ test('idle button renders the sparkle emoji glyph', () => {
   assert.match(text, /dsh-po-spark[^)]*"✨"/, 'SparkleIcon must render a literal ✨ emoji span')
 })
 
-test('disabled state stays legible (no heavy opacity dimming) and styles refresh on hot reload', () => {
+test('disabled state is grayscale (distinct from enabled, equally legible)', () => {
   const text = readFileSync(path.join(root, 'lib/client.js'), 'utf8')
-  assert.match(text, /:disabled\{opacity:\.95;cursor:not-allowed;filter:saturate\(\.45\)\}/, 'disabled must desaturate rather than dim')
+  assert.match(text, /:disabled\{cursor:not-allowed;filter:grayscale\(1\)\}/, 'disabled must desaturate to gray without dimming')
   assert.match(text, /style\.textContent = CSS/, 'apply() must rewrite the injected <style> content idempotently')
 })

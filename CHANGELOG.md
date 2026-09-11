@@ -2,6 +2,12 @@
 
 本项目遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/) 格式，版本号遵循 [SemVer](https://semver.org/lang/zh-CN/)。
 
+## [1.0.4] - 2026-09-12
+
+### Fixed
+
+- 1.0.3 的禁用态过度保守（opacity .95 + saturate .45 对 15px emoji 几乎不可感知），启用/禁用看起来相同。改为 `filter:grayscale(1)`：禁用 = 纯灰 ✨，启用 = 全彩 ✨，色相差异一眼可辨；同时实测前景对比度 35.4 vs 35.8（像素统计），禁用态与启用态一样清晰、不再发虚。
+
 ## [1.0.3] - 2026-09-12
 
 ### Fixed
