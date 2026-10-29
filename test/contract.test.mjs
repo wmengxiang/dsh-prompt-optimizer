@@ -58,3 +58,16 @@ test('disabled state is grayscale (distinct from enabled, equally legible)', () 
   assert.match(text, /:disabled\{cursor:not-allowed;filter:grayscale\(1\)\}/, 'disabled must desaturate to gray without dimming')
   assert.match(text, /style\.textContent = CSS/, 'apply() must rewrite the injected <style> content idempotently')
 })
+
+test('success and failure both surface a visible state (no silent failures)', () => {
+  const text = readFileSync(path.join(root, 'lib/client.js'), 'utf8')
+  assert.match(text, /dsh-po-error/, 'failures must switch the button into a visible error state')
+  assert.match(text, /dsh-po-success/, 'successful rewrites must flash a confirmation state')
+  assert.match(text, /宿主未提供草稿回填能力|setDraft/, 'missing setDraft must not fail silently')
+})
+
+test('host wraps the draft in <prompt_to_optimize> so it is rewritten, never answered', () => {
+  const text = readFileSync(path.join(root, 'lib/index.js'), 'utf8')
+  assert.match(text, /<prompt_to_optimize>/, 'the draft must be sent as data, tagged for rewriting')
+  assert.match(text, /never answer it, never execute it/, 'system prompt must forbid answering the draft')
+})
